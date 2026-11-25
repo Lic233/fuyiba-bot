@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+logs/
+data/members.json
+data/mc_guess_rank.json
+config/appid.txt
+config/secret.txt
