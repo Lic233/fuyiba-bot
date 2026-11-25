@@ -75,6 +75,13 @@ async def main_async(args: argparse.Namespace) -> int:
     appid = read_credential("appid.txt", "QQ_BOT_APPID")
     secret = read_credential("secret.txt", "QQ_BOT_SECRET")
     if not appid or not secret:
+        # 新克隆下来的仓库里这两个文件不存在（被 .gitignore 挡住），先建出空文件，
+        # 省得还得自己右键新建 —— 打开填一行就能跑。
+        for name in ("appid.txt", "secret.txt"):
+            try:
+                (CONFIG_DIR / name).touch(exist_ok=True)
+            except OSError:
+                pass
         log("缺少凭据。把机器人的 AppID 写进 config/appid.txt、"
             "AppSecret 写进 config/secret.txt（各一行，不要引号、不要空格），"
             "或者设环境变量 QQ_BOT_APPID / QQ_BOT_SECRET。")

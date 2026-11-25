@@ -41,7 +41,8 @@ fuyiba-bot/
    - **群消息全量接收**：只是 @ 才回的话，别人猜词时没 @ 就收不到，这游戏就没法玩了
    - 按钮 / 交互事件（`INTERACTION_CREATE`，难度面板要用）
 3. 把 AppID 写进 `config/appid.txt`、AppSecret 写进 `config/secret.txt`
-   （各一行，别加引号、别留空格），然后：
+   （各一行，别加引号、别留空格）。这两个文件被 `.gitignore` 挡住，不进仓库；
+   clone 下来没有的话，**直接启动一次会自动建出空文件**。然后：
 
 ```bash
 python bot.py --check      # 先验一下凭据，能取到 token 和网关地址就对了
